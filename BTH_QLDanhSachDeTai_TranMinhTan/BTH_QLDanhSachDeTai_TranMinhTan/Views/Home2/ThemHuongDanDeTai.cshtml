@@ -1,0 +1,42 @@
+﻿@model BTH_QLDanhSachDeTai_TranMinhTan.Models.TBLHuongDan
+
+@{
+    ViewBag.Title = "ThemHuongDanDeTai";
+}
+
+<link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<div class="container">
+    <h2><center>THÊM HƯỚNG DẪN ĐỀ TÀI</center></h2>
+    <div>
+        @Html.ActionLink("Back", "Index")
+    </div>
+    @using (Html.BeginForm("XuLyThemHuongDanDeTai", "Home2", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>TBLHuongDan</legend>
+            <table class="table">
+                <tr>
+                    <td>Mã đề tài</td>
+                    <td>
+                        @Html.DropDownList("MADT", null, new { @class = "form-control" })
+                    </td>
+                    <td>Sinh Viên</td>
+                    <td>
+                        @Html.DropDownList("MASV", null, new { @class = "form-control" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>Giảng viên</td>
+                    <td>
+                        @Html.DropDownList("MAGV", null, new { @class = "form-control" })
+                    </td>
+                    <td><input type="submit" value="Thêm" class="btn btn-danger" /></td>
+                </tr> 
+            </table>
+
+        </fieldset>
+    }
+</div>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.ReportViewer.Common</id>
+    <version>10.0.40219.1</version>
+    <title>Microsoft Report Viewer 2010 SP1 Common Libraries</title>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <projectUrl>http://www.microsoft.com/en-us/download/details.aspx?id=6610</projectUrl>
+    <iconUrl>https://api.nuget.org/v3-flatcontainer/microsoft.reportviewer.common/10.0.40219.1/icon</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>The Microsoft Report Viewer 2010 SP1 Redistributable Package includes controls for viewing reports designed using Microsoft reporting technology.</description>
+    <summary />
+    <copyright>Copyright © Microsoft Corporation. All rights reserved.</copyright>
+    <tags>report viewer controls reporting</tags>
+  </metadata>
+</package>

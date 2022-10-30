@@ -1,0 +1,40 @@
+﻿
+
+<form action="/Home2/XuLyTimKiem" method="post">
+    <table class="table">
+        <thead>
+            <tr>
+                <td style="font-size:22px; font-weight:700">
+                    Các từ khóa tìm kiếm
+                </td>
+            </tr>
+        </thead>
+        <tr>
+            <td>Tên đề tài</td>
+            <td>
+                <input type="text" name="txtDeTai" class="form-control" placeholder="Nhập tên đề tài" />
+            </td>
+            <td>Tên sinh viên</td>
+            <td>
+                <input type="text" name="txtSinhVien" class="form-control" placeholder="Nhập tên sinh viên" />
+            </td> 
+        </tr>
+        <tr>
+            <td>Tên giảng viên </td>
+            <td >
+                <input type="text" name="txtGiangVien" class="form-control" placeholder="Nhập tên giảng viên" />
+            </td>
+            <td>
+                <select class="form-control" id="cbxKetQua" name="StudentGender">
+                    <option value="1" id="1" >Đã có điểm</option>
+                    <option value="2" id="2" >Chưa có điểm</option>
+                </select>
+            </td>
+            <td><input type="submit" value="Search" class="btn btn-primary" /></td>
+        </tr>
+        <tr>
+            <td>@ViewBag.thongbao</td>
+        </tr>
+
+    </table>
+</form>

@@ -1,0 +1,58 @@
+﻿@model BTH_QLDanhSachDeTai_TranMinhTan.Models.TBLDeTai
+
+@{
+    ViewBag.Title = "ThemDeTai";
+}
+<link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<div class="container">
+    <h2><center>THÊM ĐỀ TÀI</center></h2>
+    <div>
+        @Html.ActionLink("Back", "Index")
+    </div>
+    @using (Html.BeginForm("XuLyThemDeTai", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>TBLDeTai</legend>
+            <table class="table">
+                <tr>
+                    <td >Mã đề tài</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Madt, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Madt)
+                    </td>
+                    <td>Tên đề tài</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Tendt, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Tendt)
+                    </td>
+                </tr>
+                <tr>
+                    <td>Kinh phí</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Kinhphi, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Kinhphi)
+                    </td>
+                    <td>Nơi thực tập</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Noithuctap, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Noithuctap)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                            <input type="submit" value="Thêm" class="btn btn-danger"/>
+                        </p>
+                    </td>
+                </tr>
+            </table>
+       
+        </fieldset>
+    }
+</div>
+
+
+

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ThucTap" Class="ThucTapDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-7RNKS49;Initial Catalog=ThucTap;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ThucTapConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.TBLDeTai" Member="TBLDeTais">
+    <Type Name="TBLDeTai">
+      <Column Name="Madt" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Tendt" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Column Name="Kinhphi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Noithuctap" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Association Name="TBLDeTai_TBLHuongDan" Member="TBLHuongDans" ThisKey="Madt" OtherKey="Madt" Type="TBLHuongDan" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBLSinhVien" Member="TBLSinhViens">
+    <Type Name="TBLSinhVien">
+      <Column Name="Masv" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Hotensv" Type="System.String" DbType="Char(40)" CanBeNull="true" />
+      <Column Name="Makhoa" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="Namsinh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Quequan" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Association Name="TBLKhoa_TBLSinhVien" Member="TBLKhoa" ThisKey="Makhoa" OtherKey="Makhoa" Type="TBLKhoa" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBLKhoa" Member="TBLKhoas">
+    <Type Name="TBLKhoa">
+      <Column Name="Makhoa" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Tenkhoa" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Column Name="Dienthoai" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Association Name="TBLKhoa_TBLSinhVien" Member="TBLSinhViens" ThisKey="Makhoa" OtherKey="Makhoa" Type="TBLSinhVien" />
+      <Association Name="TBLKhoa_TBLGiangVien" Member="TBLGiangViens" ThisKey="Makhoa" OtherKey="Makhoa" Type="TBLGiangVien" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBLHuongDan" Member="TBLHuongDans">
+    <Type Name="TBLHuongDan">
+      <Column Name="Masv" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Madt" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="Magv" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="KetQua" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Association Name="TBLDeTai_TBLHuongDan" Member="TBLDeTai" ThisKey="Madt" OtherKey="Madt" Type="TBLDeTai" IsForeignKey="true" />
+      <Association Name="TBLGiangVien_TBLHuongDan" Member="TBLGiangVien" ThisKey="Magv" OtherKey="Magv" Type="TBLGiangVien" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBLGiangVien" Member="TBLGiangViens">
+    <Type Name="TBLGiangVien">
+      <Column Name="Magv" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Hotengv" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Column Name="Luong" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="Makhoa" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Association Name="TBLGiangVien_TBLHuongDan" Member="TBLHuongDans" ThisKey="Magv" OtherKey="Magv" Type="TBLHuongDan" />
+      <Association Name="TBLKhoa_TBLGiangVien" Member="TBLKhoa" ThisKey="Makhoa" OtherKey="Makhoa" Type="TBLKhoa" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

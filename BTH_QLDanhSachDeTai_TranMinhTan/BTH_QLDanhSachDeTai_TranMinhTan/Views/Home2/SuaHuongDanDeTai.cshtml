@@ -1,0 +1,54 @@
+﻿@model BTH_QLDanhSachDeTai_TranMinhTan.Models.TBLHuongDan
+
+@{
+    ViewBag.Title = "SuaHuongDanDeTai";
+}
+<link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<div class="container">
+    <h2><center>SỬA HƯỚNG DẪN ĐỀ TÀI</center></h2>
+    <div>
+        @Html.ActionLink("Back", "Index")
+    </div>
+    @using (Html.BeginForm("XyLySuaHuongDanDeTai", "Home2", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>TBLHuongDan</legend>
+            <table class="table">
+                <tr>
+                    <td>Mã đề tài:</td>
+                    <td>
+                        <span class="form-control">@Model.Madt - @Model.TBLDeTai.Tendt</span>
+
+                    </td>
+                    <td>Sinh viên:</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Masv, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Masv)
+                        @*<span>@Model.Masv</span>*@
+                    </td>
+                </tr>
+                <tr>
+                    <td >Giảng viên:</td>
+                    <td>
+                        <span class="form-control">@Model.Magv - @Model.TBLGiangVien.Hotengv</span>
+                    </td>
+                    <td>kết quả:</td>
+                    <td>
+                        @Html.TextBoxFor(model => model.KetQua, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.KetQua)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                            <input type="submit" value="Lưu" class="btn btn-danger" />
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    }
+</div>
